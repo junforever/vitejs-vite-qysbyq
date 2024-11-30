@@ -1,17 +1,18 @@
-@api_url = https://api.themoviedb.org/3/movie/popular?language=es&page=1&api_key=1b501bbda107113acc653f328a2e935d
-https://api.themoviedb.org/3/movies/popular?page=1&language=en&api_key=1b501bbda107113acc653f328a2e935d
-@genres_url =https://api.themoviedb.org/3/genre/tv/list?api_key=1b501bbda107113acc653f328a2e935d
+@api_url = https://api.themoviedb.org/3/movie/popular?language=es&page=1&api_key=your_api_key_here
+
+@genres_url =https://api.themoviedb.org/3/genre/tv/list?api_key=your_api_key_here
+
 ###
 GET {{api_url}}
 
 ###
 GET {{genres_url}}
 
-@images_url = https://api.themoviedb.org/3/movie/539972/images?api_key=1b501bbda107113acc653f328a2e935d
-###
+@images_url = https://api.themoviedb.org/3/movie/539972/images?api_key=your_api_key_here
+
 
 ###
 GET {{images_url}}
 
 ###
-GET  https://api.themoviedb.org/3/configuration/languages?api_key=1b501bbda107113acc653f328a2e935d
+GET  https://api.themoviedb.org/3/configuration/languages?api_key=your_api_key_here

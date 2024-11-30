@@ -20,9 +20,9 @@ export const MoviesList = React.memo(() => {
         {movies.map((movie, index) => {
           let cssClass = '';
           if (rule?.value === RULES.Primes) {
-            cssClass = isPrime(index) ? 'prime' : 'notPrime';
+            cssClass = isPrime(index + 1) ? 'prime' : 'notPrime';
           } else if (rule?.value === RULES.OddEven) {
-            cssClass = isEven(index) ? 'even' : 'odd';
+            cssClass = isEven(index + 1) ? 'even' : 'odd';
           }
 
           return (

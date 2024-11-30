@@ -12,14 +12,7 @@ import {
 } from './constants';
 import { Header } from './components/index.ts';
 import { MoviesList } from './components';
-import {
-  loadEnd,
-  loadStart,
-  processQueryResult,
-  setError,
-  useAppDispatch,
-  useAppSelector,
-} from './store';
+import { processQueryResult, useAppDispatch, useAppSelector } from './store';
 import { Spinner } from './components/Spinner/Spinner.tsx';
 import { Toast } from './components/Toast/Toast.tsx';
 import { debounce } from './utils/functions.ts';
@@ -63,7 +56,6 @@ function App() {
 
   useEffect(() => {
     if (!error) {
-      console.log('cambia');
       dispatch(processQueryResult(cachedResponse));
     }
   }, [cachedResponse]);
@@ -91,8 +83,15 @@ function App() {
       document.body.scrollHeight - 100 <
       window.scrollY + window.innerHeight
     ) {
-      const validatedPage = response?.page || 0;
-      if (!validatedPage || validatedPage < currentPage.current) return;
+      if (!response?.page) return;
+
+      const validatedPage = response.page;
+
+      if (
+        validatedPage < currentPage.current ||
+        validatedPage + 1 > response.total_pages
+      )
+        return;
 
       currentPage.current = validatedPage + 1;
 
